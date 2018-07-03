@@ -66,4 +66,9 @@ public class User {
         return true;
     }
 
+    public void update(final User newUser) {
+        this.password = newUser.password;
+        this.name = newUser.name;
+        this.email = newUser.email;
+    }
 }
