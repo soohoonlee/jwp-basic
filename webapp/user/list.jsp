@@ -63,7 +63,7 @@
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li><a href="/user/logout" role="button">로그아웃</a></li>
-                        <li><a href="#" role="button">개인정보수정</a></li>
+                        <li><a href="/user/update?userId=${sessionScope.user.userId}" role="button">개인정보수정</a></li>
                     </c:when>
                     <c:otherwise>
                         <li><a href="/user/login.jsp" role="button">로그인</a></li>
@@ -91,8 +91,17 @@
                         <td>${user.userId}</td>
                         <td>${user.name}</td>
                         <td>${user.email}</td>
-                        <td><a href="../user/update?userId=${user.userId}" class="btn btn-success" role="button">수정</a>
-                        </td>
+                        <c:choose>
+                            <c:when test="${user.userId eq sessionScope.user.userId}">
+                                <td>
+                                    <a href="/user/update?userId=${sessionScope.user.userId}"
+                                       class="btn btn-success" role="button">수정</a>
+                                </td>
+                            </c:when>
+                            <c:otherwise>
+                                <td></td>
+                            </c:otherwise>
+                        </c:choose>
                     </tr>
                 </c:forEach>
                 </tbody>
