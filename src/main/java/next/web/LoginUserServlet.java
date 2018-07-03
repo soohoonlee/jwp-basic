@@ -30,7 +30,7 @@ public class LoginUserServlet extends HttpServlet {
       resp.sendRedirect("/");
     } else {
       log.debug("login failed..");
-      resp.sendRedirect("/user/login_failed.html");
+      resp.sendRedirect("/user/login_failed.jsp");
     }
   }
 }
