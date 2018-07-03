@@ -71,4 +71,8 @@ public class User {
         this.name = newUser.name;
         this.email = newUser.email;
     }
+
+    public boolean isPasswordEqual(final String password) {
+        return this.password.equals(password);
+    }
 }
